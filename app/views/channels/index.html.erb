@@ -1,0 +1,10 @@
+<div class="channels-list">
+  <% @channels.each do |channel| %>
+    <%= link_to channel.name, channel_path(channel), { remote: true, class: 'channel-link', data_id: channel.id } %>
+    <div class="message-board">
+      <%= render 'channels/channel', locals: { channel: channel } %>
+    </div>
+  <% end %>
+</div>
+
+
