@@ -1,10 +1,11 @@
-<div class="channels-list">
-  <% @channels.each do |channel| %>
-    <%= link_to channel.name, channel_path(channel), { remote: true, class: 'channel-link', data_id: channel.id } %>
-    <div class="message-board">
-      <%= render 'channels/channel', locals: { channel: channel } %>
-    </div>
-  <% end %>
+<div id="message-board">
+  <div id="channels-list">
+    <ul>
+      <% @channels.each do |channel| %>
+        <li><%= link_to channel.name, channel_path(channel), { remote: true, class: "channels-links" } %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="messages"></div>
 </div>
-
-
