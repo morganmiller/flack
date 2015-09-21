@@ -7,8 +7,8 @@ class ChannelsController < ApplicationController
 
   def show
     @channel = Channel.find(params[:id])
-    # render template: "show", layout: false
-    render partial: "channels/channel", locals: { channel: @channel }
+    render json: { attributes: @channel.as_json,
+                  messages: @channel.message_data.as_json }.as_json
   end
 
   private

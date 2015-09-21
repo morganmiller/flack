@@ -1,11 +1,3 @@
 <div id="message-board">
-  <div id="channels-list">
-    <ul>
-      <% @channels.each do |channel| %>
-        <li><%= link_to channel.name, channel_path(channel), { remote: true, class: "channels-links" } %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div id="messages"></div>
+    <%= react_component("Channels", channels: @channels.as_json) %>
 </div>
