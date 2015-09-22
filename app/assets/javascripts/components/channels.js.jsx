@@ -12,7 +12,7 @@ var Channels = React.createClass({
   handleMessageSubmit: function(message) {
 
     $.ajax({
-      url: '/messages/',
+      url: '/messages',
       dataType: 'json',
       type: 'POST',
       data: message,
