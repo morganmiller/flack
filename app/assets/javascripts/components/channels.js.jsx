@@ -6,18 +6,18 @@ var Channels = React.createClass({
   handleClick: function(e){
     e.preventDefault();
     this.setState({ currentChannel: fetchChannel.call(this, e.target.id)});
-    console.log(this.state)
   },
 
   handleMessageSubmit: function(message) {
+    var messageData = {body: message.body, channel: this.state.currentChannel.attributes.id};
 
     $.ajax({
       url: '/messages',
       dataType: 'json',
       type: 'POST',
-      data: message,
+      data: messageData,
       success: function(data) {
-        this.setState({newMessage: data});
+        this.setState({newMessage: message});
       }.bind(this)
       //TODO: maybe add error handler
     })
