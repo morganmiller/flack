@@ -30,10 +30,8 @@ var Channels = React.createClass({
         <Messages channel={this.state.currentChannel} />
         <MessageForm onMessageSubmit={this.handleMessageSubmit} />
         </div>
-    );
-
-    } else {
-      return(<p>Loading...</p>)
+    )} else {
+      return( <p>Loading...</p> )
     }
   },
 
@@ -47,9 +45,9 @@ var Channels = React.createClass({
     return(
       <div>
         <div className="channels">
-        <ul id="channels">
-      { channels }
-        </ul>
+          <ul id="channels">
+            { channels }
+          </ul>
         </div>
       { this.messageBlock() }
       </div>
