@@ -23,6 +23,20 @@ var Channels = React.createClass({
     })
   },
 
+  messageBlock: function(){
+    if(this.state.currentChannel) {
+      return(
+        <div>
+        <Messages channel={this.state.currentChannel} />
+        <MessageForm onMessageSubmit={this.handleMessageSubmit} />
+        </div>
+    );
+
+    } else {
+      return(<p>Loading...</p>)
+    }
+  },
+
   render: function(){
     var channels = this.props.channels.map(function(c) {
       return (<li><a href={"/channels/" + c.id} onClick={this.handleClick} id={c.id}>
@@ -37,8 +51,7 @@ var Channels = React.createClass({
       { channels }
         </ul>
         </div>
-        <Messages channel={this.state.currentChannel} />
-        <MessageForm onMessageSubmit={this.handleMessageSubmit} />
+      { this.messageBlock() }
       </div>
     )
   }

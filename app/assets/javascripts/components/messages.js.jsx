@@ -1,8 +1,21 @@
 var Messages = React.createClass({
   render: function(){
+    var channel = this.props.channel;
+
+    var messages = this.props.channel.messages.map(function(m){
+        return (
+          <li>{m.user}: {m.body}</li>
+        )
+    });
+
     return(
       <div className="messages">
-      ChannelId: { this.props.channel }
+        <h2>
+          { channel.attributes.name }: { channel.attributes.id }
+        </h2>
+        <ul>
+        { messages }
+        </ul>
       </div>
     )
   }
