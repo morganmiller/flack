@@ -1,11 +1,8 @@
 var Messages = React.createClass({
   render: function(){
     var channel = this.props.channel;
-
     var messages = this.props.channel.messages.map(function(m){
-        return (
-          <li>{m.user}: {m.body}</li>
-        )
+        return ( <li>{m.user}: {m.body}</li> )
     });
 
     return(
@@ -14,7 +11,7 @@ var Messages = React.createClass({
           { channel.attributes.name }: { channel.attributes.id }
         </h2>
         <ul>
-        { messages }
+          { messages }
         </ul>
       </div>
     )
