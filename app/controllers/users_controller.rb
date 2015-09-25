@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
+      flash.now[:errors] = @user.errors.full_messages.join(", ")
       redirect_to '/signup'
     end
   end

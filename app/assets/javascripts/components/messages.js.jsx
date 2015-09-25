@@ -1,14 +1,14 @@
 var Messages = React.createClass({
   render: function(){
     var channel = this.props.channel;
-    var messages = this.props.channel.messages.map(function(m){
+    var messages = this.props.messages.map(function(m){
         return ( <li>{m.user}: {m.body}</li> )
     });
 
     return(
       <div className="messages">
         <h2>
-          { channel.attributes.name }: { channel.attributes.id }
+          { channel.name }: { channel.id }
         </h2>
         <ul>
           { messages }
@@ -38,6 +38,3 @@ var MessageForm = React.createClass({
     )
   }
 });
-
-//this.state.socket = io.params
-//componentDidMount is where we will be listening for our sockets
