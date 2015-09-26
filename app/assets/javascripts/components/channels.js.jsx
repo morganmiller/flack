@@ -10,11 +10,26 @@
 //TODO: implement node socket listener... something with componentDidMount, like:
     //this.state.socket = io.params
     //componentDidMount is where we will be listening for our sockets
+//var socket = io.connect("localhost:8080");
 
 var Channels = React.createClass({
   getInitialState: function() {
     return ({ currentChannel: fetchChannel.call(this, "1"), messages: null })
   },
+
+  componentDidMount() {
+    socket.on("send:message", function(data){
+      var message = {body: data.body, channel: data.channel_id};
+      console.log(message);
+      //this.handleMessageSubmit(message)
+    })
+  },
+
+  //_messageReceive(message) {
+  //  var {messages} = this.state;
+  //  messages.push(message);
+  //  this.setState({message});
+  //},
 
   handleClick: function(e){
     e.preventDefault();
