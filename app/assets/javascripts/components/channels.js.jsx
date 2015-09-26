@@ -10,7 +10,7 @@
 //TODO: implement node socket listener... something with componentDidMount, like:
     //this.state.socket = io.params
     //componentDidMount is where we will be listening for our sockets
-//var socket = io.connect("localhost:8080");
+
 
 var Channels = React.createClass({
   getInitialState: function() {
@@ -18,11 +18,11 @@ var Channels = React.createClass({
   },
 
   componentDidMount() {
-    socket.on("send:message", function(data){
+    socket.on("message", function(data){
       var message = {body: data.body, channel: data.channel_id};
       console.log(message);
-      //this.handleMessageSubmit(message)
-    })
+      this.setState({messages: this.state.messages.concat(message)});
+    }.bind(this))
   },
 
   //_messageReceive(message) {
@@ -64,28 +64,28 @@ var Channels = React.createClass({
     }
   },
 
-  appendNewMessage: function(){
-    //this is not working when I invoke it, but it also doesn't break anything...
-
-    //what i need to do is somehow append an additional message object to the messages div
-    //will this require a Message component as a child of Messages or can I re-use some code and put in the right place?
-    //Does it need createElement?
-    //This is not jQuery.
-
-    //....i think i need to have the "currentChannel"
-    //and Messages component separate from one another
-    //currentChannel is a STATE that passes props to Messages
-    //(which is kind of already happening?)
-    //newMessage is a STATE that also passes props to Messages
-    //Both state changes trigger the Messages div to react?
-    //or maybe a singular Message component that is rendered by Messages
-    //fuck if i know
-
-    if(this.state.newMessage){
-      return(
-        <Messages channel={this.state.currentChannel} />
-      )}
-  },
+  //appendNewMessage: function(){
+  //  //this is not working when I invoke it, but it also doesn't break anything...
+  //
+  //  //what i need to do is somehow append an additional message object to the messages div
+  //  //will this require a Message component as a child of Messages or can I re-use some code and put in the right place?
+  //  //Does it need createElement?
+  //  //This is not jQuery.
+  //
+  //  //....i think i need to have the "currentChannel"
+  //  //and Messages component separate from one another
+  //  //currentChannel is a STATE that passes props to Messages
+  //  //(which is kind of already happening?)
+  //  //newMessage is a STATE that also passes props to Messages
+  //  //Both state changes trigger the Messages div to react?
+  //  //or maybe a singular Message component that is rendered by Messages
+  //  //fuck if i know
+  //
+  //  if(this.state.newMessage){
+  //    return(
+  //      <Messages channel={this.state.currentChannel} />
+  //    )}
+  //},
 
   render: function(){
     var channels = this.props.channels.map(function(c) {
