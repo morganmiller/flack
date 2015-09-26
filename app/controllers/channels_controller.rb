@@ -1,4 +1,5 @@
 class ChannelsController < ApplicationController
+  before_filter :authorize
   respond_to :html
 
   def index
