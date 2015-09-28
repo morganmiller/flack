@@ -2,7 +2,7 @@ var Messages = React.createClass({
   render: function(){
     var channel = this.props.channel;
     var messages = this.props.messages.map(function(m){
-        return ( <li>{m.user}: {m.body}</li> )
+        return ( <li className="media">{m.user}: {m.body}</li> )
     });
 
     return(
@@ -24,9 +24,7 @@ var Messages = React.createClass({
                     <div className="media">
                       <div className="media-body" >
                         <ul className="media-list">
-                          <li className="media">
                           { messages }
-                            </li>
                           </ul>
                         </div>
                         </div>
