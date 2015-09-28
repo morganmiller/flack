@@ -19,7 +19,7 @@ var Channels = React.createClass({
 
   componentDidMount() {
     socket.on("message", function(data){
-      var message = {body: data.body, channel: data.channel_id};
+      var message = {body: data.body, user: data.user, channel: data.channel_id};
       console.log(message);
       this.setState({messages: this.state.messages.concat(message)});
     }.bind(this))
@@ -45,7 +45,7 @@ var Channels = React.createClass({
       type: 'POST',
       data: messageData,
       success: function(data) {
-        this.setState({messages: this.state.messages.concat(data)});
+        //this.setState({messages: this.state.messages.concat(data)});
         //this.state.currentChannel.messages;
       }.bind(this)
       //TODO: maybe add error handler
