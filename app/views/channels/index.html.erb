@@ -1,3 +1,10 @@
-<div id="message-board">
-  <%= react_component("Channels", channels: @channels.as_json) %>
-</div>
+<body style="font-family:Verdana">
+  <div class="container">
+    <div class="row " style="padding-top:40px;">
+      <h3 class="text-center" > FLACK </h3><br /><br />
+      <div id="message-board">
+        <%= react_component("Channels", channels: @channels.as_json) %>
+      </div>
+    </div>
+  </div>
+</body>

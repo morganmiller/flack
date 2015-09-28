@@ -1,6 +1,6 @@
 //Probably these changes would be way better:
 
-// 1. Rather than Channels, relegate most of this logic to a MessageBoard class
+// 1. Rather than Channels, relegate most of this logic to a MessageBoard className
     // and separate Channels out of it, to make more modular. But the channel does dictate
     // the entire state of the message board, so is that really necessary?
 
@@ -55,10 +55,10 @@ var Channels = React.createClass({
   messageBlock: function(){
     if(this.state.currentChannel) {
       return(
-        <div>
+        <div className="panel panel-info">
         <Messages channel={this.state.currentChannel} messages={this.state.messages} />
         <MessageForm onMessageSubmit={this.handleMessageSubmit} />
-        </div>
+      </div>
     )} else {
       return( <p>Loading...</p> )
     }
@@ -95,14 +95,28 @@ var Channels = React.createClass({
     }.bind(this));
 
     return(
-      <div>
-        <div className="channels">
-          <ul id="channels">
-            { channels }
-          </ul>
+      <div className="row">
+      <div className="col-md-4">
+        <div className="panel panel-primary">
+          <div className="panel-heading">Channels</div>
+            <div className="panel-body">
+              <ul className="media-list">
+                <div className="media-body">
+                  <div className="media">
+                    <div className="media-body" >
+                      <li className="media">{ channels }</li>
+                    </div>
+                  </div>
+                </div>
+              </ul>
+              </div>
+            </div>
         </div>
-      { this.messageBlock() }
+      <div className="col-md-8">
+        { this.messageBlock() }
       </div>
+      </div>
+
     )
   }
 });
