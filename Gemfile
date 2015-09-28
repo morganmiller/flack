@@ -14,6 +14,7 @@ gem 'responders'
 gem 'react-rails'
 gem 'redis'
 gem 'socket.io-rails'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'byebug'

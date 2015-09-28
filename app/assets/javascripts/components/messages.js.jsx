@@ -6,15 +6,35 @@ var Messages = React.createClass({
     });
 
     return(
+      //<div className="messages">
+      //  <h2>
+      //    { channel.name }: { channel.id }
+      //  </h2>
+      //  <ul>
+      //    { messages }
+      //  </ul>
+      //</div>
       <div className="messages">
-        <h2>
-          { channel.name }: { channel.id }
-        </h2>
-        <ul>
-          { messages }
-        </ul>
-      </div>
-    )
+              <div className="panel panel-info">
+                <div className="panel-heading">
+                  { channel.name }
+                </div>
+                <div className="panel-body">
+                  <div className="media-body">
+                    <div className="media">
+                      <div className="media-body" >
+                        <ul className="media-list">
+                          <li className="media">
+                          { messages }
+                            </li>
+                          </ul>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                                  )
   }
 });
 
@@ -31,10 +51,11 @@ var MessageForm = React.createClass({
 
   render: function() {
     return(
-      <form className="messageForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Say something..." ref="body" />
-        <input type="submit" value="Post" />
-      </form>
+    <form className="messageForm" onSubmit={this.handleSubmit}>
+      <input type="text" className="form-control" placeholder="Say something..." ref="body" />
+      <input type="submit" value="Send" className="btn btn-info"/>
+    </form>
+
     )
   }
 });
