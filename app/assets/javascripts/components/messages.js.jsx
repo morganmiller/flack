@@ -11,12 +11,12 @@ var Messages = React.createClass({
           <div className="panel-heading">
             { channel.name }
           </div>
-          <div className="panel-body">
-            <div className="media-body">
-              <div className="media">
-                <div className="media-body" >
-                  <ul className="media-list">
-                    { messages }
+        <div className="panel-body">
+          <div className="media-body">
+            <div className="media">
+              <div className="media-body" >
+                <ul className="media-list">
+                  { messages }
                   </ul>
                 </div>
               </div>

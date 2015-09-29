@@ -23,9 +23,7 @@ var Channels = React.createClass({
       url: '/messages',
       dataType: 'json',
       type: 'POST',
-      data: messageData,
-      success: function(data) {
-      }.bind(this)
+      data: messageData
     })
   },
 
