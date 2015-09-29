@@ -1,5 +1,0 @@
-<% if Rails.env.production? %>
-  var socket = io('redis://redistogo:4d931ee1ca6bc1a1dcd9769c420e9050@bluegill.redistogo.com:9571/');
-<% else %>
-  var socket = io('http://localhost:8080');
-<% end %>
