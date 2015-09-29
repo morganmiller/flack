@@ -6,33 +6,25 @@ var Messages = React.createClass({
     });
 
     return(
-      //<div className="messages">
-      //  <h2>
-      //    { channel.name }: { channel.id }
-      //  </h2>
-      //  <ul>
-      //    { messages }
-      //  </ul>
-      //</div>
       <div className="messages">
-              <div className="panel panel-info">
-                <div className="panel-heading">
-                  { channel.name }
+        <div className="panel panel-info">
+          <div className="panel-heading">
+            { channel.name }
+          </div>
+          <div className="panel-body">
+            <div className="media-body">
+              <div className="media">
+                <div className="media-body" >
+                  <ul className="media-list">
+                    { messages }
+                    </ul>
+                  </div>
                 </div>
-                <div className="panel-body">
-                  <div className="media-body">
-                    <div className="media">
-                      <div className="media-body" >
-                        <ul className="media-list">
-                          { messages }
-                          </ul>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                                  )
+              </div>
+            </div>
+          </div>
+        </div>
+                            )
   }
 });
 
